@@ -1,7 +1,7 @@
 {
   "name": "weakmap-polyfill",
   "main": "weakmap-polyfill.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/polygonplanet/weakmap-polyfill",
   "authors": [
     "polygonplanet <polygon.planet.aqua@gmail.com>"

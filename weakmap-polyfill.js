@@ -3,8 +3,8 @@
  *
  * @description  Minimal implementation for ECMAScript6 WeakMap.
  * @fileoverview ECMAScript6 WeakMap polyfill
- * @version      1.0.0
- * @date         2015-10-09
+ * @version      1.0.1
+ * @date         2015-10-19
  * @link         https://github.com/polygonplanet/weakmap-polyfill
  * @copyright    Copyright (c) 2015 polygon planet <polygon.planet.aqua@gmail.com>
  * @license      MIT
@@ -27,13 +27,11 @@
     return WeakMap;
   }
 
-  var now = +new Date(),
-      i = 0,
-      defineProperty = Object.defineProperty,
+  var defineProperty = Object.defineProperty,
       hasOwnProperty = Object.prototype.hasOwnProperty;
 
   var WM = function WeakMap() {
-    this._id = ['', 'WeakMap', now, Math.random(), ++i].join('.');
+    this._id = '_WeakMap' + Math.random();
   };
 
   WM.prototype = {

@@ -24,7 +24,8 @@
   "scripts": {
     "minify": "uglifyjs weakmap-polyfill.js -o weakmap-polyfill.min.js --keep-fnames --comments -m -b ascii-only=true,beautify=false",
     "test": "mocha tests/test-node && karma start karma.conf.js",
-    "travis": "mocha tests/test-node && karma start karma.conf.js --single-run"
+    "travis": "mocha tests/test-node && karma start karma.conf.js --single-run",
+    "travis-test-only": "mocha tests/test-node"
   },
   "repository": {
     "type": "git",

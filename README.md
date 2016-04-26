@@ -4,39 +4,28 @@ weakmap-polyfill
 [![Build Status](https://travis-ci.org/polygonplanet/weakmap-polyfill.svg?branch=master)](https://travis-ci.org/polygonplanet/weakmap-polyfill)
 
 
-Minimal implementation for ECMAScript6 WeakMap.
+[ECMAScript6 WeakMap](http://www.ecma-international.org/ecma-262/6.0/#sec-weakmap-objects) polyfill.
 
 ## Installation
 
-### In Browser:
+Available on `npm` as **weakmap-polyfill**.
 
-```html
-<script src="weakmap-polyfill.js"></script>
+```bash
+$ npm install weakmap-polyfill --save
 ```
 
-or
+This can also be installed with `Bower`.
 
-```html
-<script src="weakmap-polyfill.min.js"></script>
+```bash
+$ bower install weakmap-polyfill
 ```
 
 **WeakMap** will defined in the global scope if native WeakMap is not supported.
 
 
-### In Node.js:
-
-```bash
-npm install weakmap-polyfill
-```
-
 ```javascript
-var WeakMap = require('weakmap-polyfill'); // Return WeakMap shim or native WeakMap.
-```
-
-### bower:
-
-```bash
-bower install weakmap-polyfill
+require('weakmap-polyfill');
+var weakMap = new WeakMap();
 ```
 
 ## License

@@ -16,3 +16,9 @@ before_install:
   - sh -e /etc/init.d/xvfb start
 script:
   - 'if [ "${TRAVIS_NODE_VERSION}" = "0.4" ] || [ "${TRAVIS_NODE_VERSION}" = "0.6" ] || [ "${TRAVIS_NODE_VERSION}" = "0.8" ] || [ "${TRAVIS_NODE_VERSION}" = "0.9" ]; then npm run travis-test-only ; else npm run travis ; fi'
+matrix:
+  allow_failures:
+    - node_js: "0.9"
+    - node_js: "0.8"
+    - node_js: "0.6"
+    - node_js: "0.4"

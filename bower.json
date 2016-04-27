@@ -1,12 +1,12 @@
 {
   "name": "weakmap-polyfill",
   "main": "weakmap-polyfill.js",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "homepage": "https://github.com/polygonplanet/weakmap-polyfill",
   "authors": [
     "polygonplanet <polygon.planet.aqua@gmail.com>"
   ],
-  "description": "Minimal implementation for ECMAScript6 WeakMap.",
+  "description": "ECMAScript6 WeakMap polyfill",
   "moduleType": [
     "amd",
     "globals",
@@ -17,6 +17,7 @@
     "polyfill",
     "shim",
     "es6",
+    "es2015",
     "ecmascript",
     "javascript"
   ],

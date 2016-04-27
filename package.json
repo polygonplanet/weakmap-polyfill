@@ -1,6 +1,6 @@
 {
   "name": "weakmap-polyfill",
-  "version": "2.0.0-alpha.1",
+  "version": "2.0.0",
   "description": "ECMAScript6 WeakMap polyfill",
   "main": "weakmap-polyfill.js",
   "directories": {

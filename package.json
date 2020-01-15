@@ -2,7 +2,7 @@
   "name": "weakmap-polyfill",
   "description": "ECMAScript6 WeakMap polyfill",
   "version": "2.0.0",
-  "author": "polygon planet",
+  "author": "polygon planet <polygon.planet.aqua@gmail.com>",
   "bugs": {
     "url": "https://github.com/polygonplanet/weakmap-polyfill/issues"
   },
@@ -21,9 +21,13 @@
     "power-assert": "^1.6.1",
     "uglify-js": "^3.7.5"
   },
-  "directories": {
-    "test": "tests"
+  "engines": {
+    "node": ">=8.10.0"
   },
+  "files": [
+    "weakmap-polyfill.js",
+    "weakmap-polyfill.min.js"
+  ],
   "homepage": "https://github.com/polygonplanet/weakmap-polyfill",
   "keywords": [
     "ecmascript",

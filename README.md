@@ -3,7 +3,6 @@ weakmap-polyfill
 
 [![Build Status](https://travis-ci.org/polygonplanet/weakmap-polyfill.svg?branch=master)](https://travis-ci.org/polygonplanet/weakmap-polyfill)
 
-
 [ECMAScript6 WeakMap](http://www.ecma-international.org/ecma-262/6.0/#sec-weakmap-objects) polyfill.
 
 ## Installation
@@ -11,7 +10,7 @@ weakmap-polyfill
 Available on `npm` as **weakmap-polyfill**.
 
 ```bash
-$ npm install weakmap-polyfill --save
+$ npm install weakmap-polyfill
 ```
 
 This can also be installed with `Bower`.

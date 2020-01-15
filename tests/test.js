@@ -1,4 +1,4 @@
-/*global describe, beforeEach, afterEach, it, assert*/
+/*global assert*/
 
 'use strict';
 

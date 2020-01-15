@@ -18,7 +18,7 @@ $ npm install weakmap-polyfill
 
 ### Usage
 
-Import or require A`weakmap-polyfill`, then **WeakMap** will be defined in the global scope if native WeakMap is not supported in running environment.
+Import or require `weakmap-polyfill`, then **WeakMap** will be defined in the global scope if native WeakMap is not supported in running environment.
 
 #### node
 
@@ -46,5 +46,3 @@ var weakMap = new WeakMap();
 ## License
 
 MIT
-
-

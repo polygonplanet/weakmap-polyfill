@@ -45,7 +45,7 @@
     "url": "https://github.com/polygonplanet/weakmap-polyfill.git"
   },
   "scripts": {
-    "minify": "uglifyjs weakmap-polyfill.js -o weakmap-polyfill.min.js --keep-fnames --comments -m -b ascii-only=true,beautify=false",
+    "minify": "uglifyjs weakmap-polyfill.js -o weakmap-polyfill.min.js --keep-fnames --comments -m -b ascii_only=true,beautify=false",
     "test": "mocha tests/test-node && mocha tests/test-node-polyfill && karma start karma.conf.js",
     "travis": "mocha tests/test-node && mocha tests/test-node-polyfill && karma start karma.conf.js --single-run"
   }

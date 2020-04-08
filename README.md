@@ -13,7 +13,7 @@ weakmap-polyfill
 ### npm
 
 ```bash
-$ npm install weakmap-polyfill
+$ npm install --save weakmap-polyfill
 ```
 
 ### Usage
@@ -42,6 +42,14 @@ const weakMap = new WeakMap();
 var weakMap = new WeakMap();
 </script>
 ```
+
+## Compatibility
+
+This polyfill has following few limitations.
+
+* WeakMap `iterable` argument is not supported. ([23.3.1.1 WeakMap ( \[ iterable \] )](https://www.ecma-international.org/ecma-262/6.0/index.html#sec-weakmap-iterable))
+* Frozen and sealed objects are not supported.
+* The values held by a WeakMap can't be collected once the map itself is GCed, since the values here are tied to the keys. #4
 
 ## License
 

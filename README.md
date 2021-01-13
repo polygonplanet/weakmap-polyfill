@@ -2,7 +2,7 @@ weakmap-polyfill
 ================
 
 [![NPM Version](https://img.shields.io/npm/v/weakmap-polyfill.svg)](https://www.npmjs.com/package/weakmap-polyfill)
-[![Build Status](https://travis-ci.org/polygonplanet/weakmap-polyfill.svg?branch=master)](https://travis-ci.org/polygonplanet/weakmap-polyfill)
+[![Build Status](https://travis-ci.com/polygonplanet/weakmap-polyfill.svg?branch=master)](https://travis-ci.com/polygonplanet/weakmap-polyfill)
 [![Bundle Size (minified)](https://img.shields.io/github/size/polygonplanet/weakmap-polyfill/weakmap-polyfill.min.js.svg)](https://github.com/polygonplanet/weakmap-polyfill/blob/master/weakmap-polyfill.min.js)
 [![GitHub License](https://img.shields.io/github/license/polygonplanet/weakmap-polyfill.svg)](https://github.com/polygonplanet/weakmap-polyfill/blob/master/LICENSE)
 

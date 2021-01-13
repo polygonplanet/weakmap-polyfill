@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WeakMap Polyfill Browser Test</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+.progress {
+  height: auto;
+}
+
+.test h2 {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 22px;
+  margin: 5px 0 5px 0;
+}
+
+.duration {
+  margin-left: 1em;
+}
+
+pre {
+  background-color: #f6f6f6;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 3px;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>WeakMap Polyfill Browser Test</h1>
+    <div id="mocha"></div>
+  </div>
+  <script>
+  // Force WeakMap to run tests for native supported browser
+  delete window.WeakMap;
+  </script>
+  <script src="../weakmap-polyfill.js"></script>
+  <script src="../node_modules/mocha/mocha.js"></script>
+  <script src="../node_modules/power-assert/build/power-assert.js"></script>
+  <script>
+  mocha.setup('bdd');
+  </script>
+  <script>
+  var modules = {};
+
+  function require(name) {
+    if (modules[name]) {
+      return modules[name];
+    }
+  }
+
+  modules['../weakmap-polyfill'] = WeakMap;
+  </script>
+  <script src="./test.js"></script>
+  <script>
+  mocha.run();
+  </script>
+</body>
+</html>

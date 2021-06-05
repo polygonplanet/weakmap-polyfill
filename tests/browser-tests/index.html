@@ -41,8 +41,8 @@ pre {
   }
   </script>
   <script src="../../weakmap-polyfill.js"></script>
-  <script src="../../tests/vendor/mocha/mocha.js"></script>
-  <script src="../../tests/vendor/power-assert/power-assert.js"></script>
+  <script src="vendor/mocha/mocha.js"></script>
+  <script src="vendor/power-assert/power-assert.js"></script>
   <script>
   mocha.setup('bdd');
   </script>
@@ -57,7 +57,7 @@ pre {
 
   modules['../weakmap-polyfill'] = WeakMap;
   </script>
-  <script src="../../tests/test.js"></script>
+  <script src="../test.js"></script>
   <script>
   mocha.run();
   </script>

@@ -1,7 +1,5 @@
 /*global assert*/
 
-'use strict';
-
 describe('WeakMap', function() {
 
   var defineProperty = function(object, name, value) {

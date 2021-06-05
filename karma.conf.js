@@ -41,6 +41,14 @@ module.exports = function(config) {
         if (process.env.TRAVIS) {
           return ['Chrome_travis_ci'];
         }
+
+        if (availableBrowser) {
+          const ieIndex = availableBrowser.indexOf('IE');
+          if (ieIndex !== -1) {
+            // Exclude IE because it do not work
+            availableBrowser.splice(ieIndex, 1);
+          }
+        }
         return availableBrowser;
       }
     },

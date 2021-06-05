@@ -9,6 +9,7 @@
   "dependencies": {},
   "devDependencies": {
     "es5-shim": "^4.5.15",
+    "eslint": "^7.27.0",
     "karma": "^5.2.3",
     "karma-chrome-launcher": "^3.1.0",
     "karma-detect-browsers": "^2.3.3",

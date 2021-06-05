@@ -1,7 +1,7 @@
 /*!
  * weakmap-polyfill v2.0.3 - ECMAScript6 WeakMap polyfill
  * https://github.com/polygonplanet/weakmap-polyfill
- * Copyright (c) 2015-2021 Polygon Planet <polygon.planet.aqua@gmail.com>
+ * Copyright (c) 2015-2021 polygonplanet <polygon.planet.aqua@gmail.com>
  * @license MIT
  */
 
@@ -13,8 +13,15 @@
   }
 
   var hasOwnProperty = Object.prototype.hasOwnProperty;
+  var hasDefine = Object.defineProperty && (function() {
+    try {
+      // Avoid IE8's broken Object.defineProperty
+      return Object.defineProperty({}, 'x', { value: 1 }).x === 1;
+    } catch (e) {}
+  })();
+
   var defineProperty = function(object, name, value) {
-    if (Object.defineProperty) {
+    if (hasDefine) {
       Object.defineProperty(object, name, {
         configurable: true,
         writable: true,
@@ -109,7 +116,6 @@
       return this;
     });
 
-
     function checkInstance(x, methodName) {
       if (!isObject(x) || !hasOwnProperty.call(x, '_id')) {
         throw new TypeError(
@@ -127,17 +133,16 @@
       return Math.random().toString().substring(2);
     }
 
-
     defineProperty(WeakMap, '_polyfill', true);
     return WeakMap;
   })();
-
 
   function isObject(x) {
     return Object(x) === x;
   }
 
 })(
+  typeof globalThis !== 'undefined' ? globalThis :
   typeof self !== 'undefined' ? self :
   typeof window !== 'undefined' ? window :
   typeof global !== 'undefined' ? global : this

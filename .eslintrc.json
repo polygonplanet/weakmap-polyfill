@@ -36,5 +36,8 @@
     "no-console": "warn",
     "no-undef": "warn",
     "semi": "warn"
+  },
+  "globals": {
+    "globalThis": false
   }
 }

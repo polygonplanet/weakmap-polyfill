@@ -20,18 +20,18 @@ $ npm install --save weakmap-polyfill
 
 Import or require `weakmap-polyfill`, then **WeakMap** will be defined in the global scope if native WeakMap is not supported in running environment.
 
-#### node
-
-```javascript
-require('weakmap-polyfill');
-var weakMap = new WeakMap();
-```
-
-#### webpack etc.
+#### using `import`
 
 ```javascript
 import 'weakmap-polyfill';
 const weakMap = new WeakMap();
+```
+
+#### using `require`
+
+```javascript
+require('weakmap-polyfill');
+var weakMap = new WeakMap();
 ```
 
 #### browser (standalone)
@@ -44,6 +44,20 @@ var weakMap = new WeakMap();
 ```
 
 ## Compatibility
+
+* Chrome 15
+* Firefox 3
+* IE 7
+* Safari 4
+* Opera 11.5
+* Edge
+
+### Browser Tests
+
+* [Browser Test](http://polygonplanet.github.io/weakmap-polyfill/browser-tests/index.html)
+* [Browser Test for Legacy](https://polygonplanet.github.io/weakmap-polyfill/browser-tests/legacy.html)
+
+## Limitations
 
 This polyfill has following few limitations.
 

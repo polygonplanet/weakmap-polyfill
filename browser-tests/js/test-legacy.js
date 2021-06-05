@@ -1,5 +1,5 @@
 // Weakmap minimal tests for legacy browsers (e.g. ie8, ie9 etc.) based on test.js
-// This test is for use with the following gh-pages (/docs/browser-tests)
+// This test is for use with the following gh-pages
 // http://polygonplanet.github.io/weakmap-polyfill/browser-tests/legacy.html
 
 (function(self) {

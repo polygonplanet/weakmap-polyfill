@@ -13,14 +13,23 @@ pre {
   border-radius: 3px;
 }
 
+.test-stats {
+  margin: 12px 0 12px 0;
+}
+
 .test-result {
-  margin-right: 8px;
-  width: 50px;
-  height: 25px;
-  padding: 1px 4px;
-  color: #fff;
-  display: inline-block;
-  text-align: center;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.test-result-pass {
+  color: #00a927;
+  font-weight: bold;
+}
+
+.test-result-fail {
+  color: #ff0011;
+  font-weight: bold;
 }
 
 .test-pass {
@@ -43,15 +52,38 @@ pre {
   color: #ff0011;
 }
 
-#test-report li {
+.test-suite-result {
+  margin-right: 8px;
+  width: 50px;
+  height: 25px;
+  padding: 1px 4px;
+  color: #fff;
+  display: inline-block;
+  text-align: center;
+}
+
+#test-result li, #test-report li {
   margin-bottom: 2px;
+}
+
+.footer {
+  margin-bottom: 20px;
+  font-size: 16px;
+  padding-top: 12px;
 }
 </style>
 </head>
 <body>
   <div class="container">
     <h1>WeakMap Polyfill Browser Test (for Legacy)</h1>
+    <div id="test-stats">
+      <div id="test-progress"></div>
+      <div id="test-result"></div>
+    </div>
     <div id="test-report"></div>
+    <div class="footer">
+      ECMAScript6 WeakMap polyfill - <a href="https://github.com/polygonplanet/weakmap-polyfill">GitHub</a>
+    </div>
   </div>
   <script>
   // Forced test for browsers that natively support WeakMap

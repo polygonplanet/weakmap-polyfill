@@ -226,13 +226,30 @@
   })();
 
   function Test() {
-    this.$testReport = document.getElementById('test-report');
-    this.$ul = null;
+    this.init();
   }
 
   Test.prototype = {
+    init: function() {
+      this.$testResult = document.getElementById('test-result');
+      this.$testProgress = document.getElementById('test-progress');
+      this.$testReport = document.getElementById('test-report');
+      this.$reportList = null;
+      this.suiteTotal = this.countSuites(Suite);
+      this.suiteDone = 0;
+      this.results = {
+        pass: 0,
+        fail: 0
+      };
+    },
     clear: function() {
-      this.$testReport = this.$ul = null;
+      this.$testResult = null;
+      this.$testProgress = null;
+      this.$testReport = null;
+      this.$reportList = null;
+      this.suiteTotal = null;
+      this.suiteDone = null;
+      this.results = null;
     },
     run: function() {
       var self = this;
@@ -252,9 +269,13 @@
           try {
             test.test();
             self.log(test.title, true);
+            self.results.pass++;
           } catch (e) {
             self.log(test.title, false, e.message || e.description || e);
+            self.results.fail++;
           }
+          self.suiteDone++;
+          self.progress();
 
           subSuite.afterEach && subSuite.afterEach();
           Suite.afterEach && Suite.afterEach();
@@ -265,37 +286,70 @@
           }
         });
       });
-
+      this.result();
       this.clear();
     },
+    countSuites: function(suite) {
+      var suiteCount = 0;
+      forEach(keys(suite.tests), function(describe) {
+        var subSuite = suite.tests[describe];
+        forEach(subSuite.tests, function() {
+          suiteCount++;
+        });
+      });
+      return suiteCount;
+    },
     describe: function(content) {
-      if (this.$ul) {
-        this.$ul = null;
+      if (this.$reportList) {
+        this.$reportList = null;
       }
       var h2 = document.createElement('h2');
-      addTextContent(h2, content);
+      setTextContent(h2, content);
       this.$testReport.appendChild(h2);
-      this.$ul = document.createElement('ul');
-      this.$testReport.appendChild(this.$ul);
+      this.$reportList = document.createElement('ul');
+      this.$testReport.appendChild(this.$reportList);
     },
     log: function(title, res, msg) {
       var li = document.createElement('li');
 
       var resSpan = document.createElement('span');
-      resSpan.className = 'test-result ' + (res ? 'test-pass' : 'test-fail');
-      addTextContent(resSpan, res ? 'PASS' : 'FAIL');
+      resSpan.className = 'test-suite-result ' + (res ? 'test-pass' : 'test-fail');
+      setTextContent(resSpan, res ? 'PASS' : 'FAIL');
 
       var titleSpan = document.createElement('span');
-      addTextContent(titleSpan, title);
+      setTextContent(titleSpan, title);
 
       var msgDiv = document.createElement('div');
       msgDiv.className = 'test-msg ' + (res ? 'test-msg-pass' : 'test-msg-fail');
-      addTextContent(msgDiv, msg || '');
+      setTextContent(msgDiv, msg || '');
 
       li.appendChild(resSpan);
       li.appendChild(titleSpan);
       li.appendChild(msgDiv);
-      this.$ul.appendChild(li);
+      this.$reportList.appendChild(li);
+    },
+    progress: function() {
+      var per = Math.floor(this.suiteDone / this.suiteTotal * 100);
+      setTextContent(this.$testProgress, per + '% Complete');
+    },
+    result: function() {
+      var ul = document.createElement('ul');
+      var resultPass = document.createElement('li');
+      var resultFail = document.createElement('li');
+
+      if (this.results.pass > 0) {
+        resultPass.className = 'test-result-pass';
+      }
+      if (this.results.fail > 0) {
+        resultFail.className = 'test-result-fail';
+      }
+
+      setTextContent(resultPass, 'Passes: ' + this.results.pass);
+      setTextContent(resultFail, 'Failures: ' + this.results.fail);
+
+      ul.appendChild(resultPass);
+      ul.appendChild(resultFail);
+      this.$testResult.appendChild(ul);
     }
   };
 
@@ -323,7 +377,7 @@
     fail('Got unwanted exception: ' + (expected && expected.name || expected));
   };
 
-  function addTextContent(elem, content) {
+  function setTextContent(elem, content) {
     var key = elem.innerText === void 0 ? 'textContent' : 'innerText';
     elem[key] = content;
   }

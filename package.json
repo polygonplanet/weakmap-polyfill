@@ -1,8 +1,8 @@
 {
   "name": "weakmap-polyfill",
   "description": "ECMAScript6 WeakMap polyfill",
-  "version": "2.0.3",
-  "author": "polygon planet <polygon.planet.aqua@gmail.com>",
+  "version": "2.0.4",
+  "author": "polygonplanet <polygon.planet.aqua@gmail.com>",
   "bugs": {
     "url": "https://github.com/polygonplanet/weakmap-polyfill/issues"
   },
